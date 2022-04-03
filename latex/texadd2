@@ -1,0 +1,255 @@
+%% commands(Some are inspired by Evan Chen(cuz sometimes, I don't have any appropiate name for the command;-;))
+
+\newcommand{\sdots}{\dots\dots}
+\newcommand{\ord}{\text{ord}}
+\newcommand{\min}{\text{min}}
+\newcommand{max}{\text{max}}
+\newcommand{\gcd}{\text{gcd}}
+\newcommand{\lcm}{\text{lcm}}
+
+\newcommand{\cbrt}[1]{\sqrt[3]{#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceiling}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\ol}{\overline}
+\newcommand{\ul}{\underline}
+\newcommand{\wt}{\widetilde}
+\newcommand{\wh}{\widehat}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\mangle}{\measuredangle}
+
+\newcommand{\hrulebar}{\par\hspace{\fill}\rule{0.95\linewidth}{.7pt}\hspace{\fill}\par\nointerlineskip \vspace{\baselineskip}}
+
+\newcommand{\btx}[1]{\textcolor{blue!70}{#1}}
+\newcommand{\rtx}[1]{\textcolor{red!70}{#1}}
+
+\newcommand{\soln}[1]{\begin{proof}[\textcolor{blue!70}{Solution.}] #1 \end{proof}}
+
+%% cyc and sym sum, prod
+
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%% Sets
+
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbZ+}{\mathbb{Z^+}}
+\newcommand{\bbZ-}{\mathbb{Z^-}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbR}{\mathbb{R}}
+
+ use packages
+
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+
+%% head & section
+
+\renewcommand{\headrulewidth}{0.5pt}
+
+\makeatletter
+%% See pp. 26f. of 'The LaTeX Companion,' 2nd. ed.
+\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
+    {\csname the#1\endcsname\quad}%      default
+    {\csname #1@cntformat\endcsname}}%   individual control
+\newcommand{\section@cntformat}{\textcolor{blue!70}{\S\thesection}\quad}
+\newcommand{\subsection@cntformat}{\textcolor{red!70}{\S\thesubsection}\quad}
+\newcommand{\subsubsection@cntformat}{\textcolor{green!75!blue}{\S\thesubsubsection}\quad}
+%\newcommand{\paragraph@cntformat}{\S\theparagraph\quad}
+%\newcommand{\subparagraph@cntformat}{\S\thesubparagraph\quad}
+\makeatletter
+
+%% theoremstyles (again, some are edited from Dylandi)
+
+\newtheoremstyle{puntheo}%                % Name
+  {0pt}%                                     % Space above
+  {2pt}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\color{red!70}\bfseries}%                            % Theorem head font
+  {.}%                                    % Punctuation after theorem head
+  { }%                                    % Space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}% 
+
+\newtheoremstyle{punthm}%                % Name
+  {0pt}%                                     % Space above
+  {2pt}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\color{blue!70}\bfseries}%                            % Theorem head font
+  {.}%                                    % Punctuation after theorem head
+  { }%                                    % Space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%                                     % Theorem head spec (can be left empty, meaning `normal')
+
+\newtheoremstyle{greenpunthm}%                % Name
+  {0pt}%                                     % Space above
+  {2pt}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\color{green!80!blue}\bfseries}%                            % Theorem head font
+  {.}%                                    % Punctuation after theorem head
+  { }%                                    % Space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%                                     % Theorem head spec (can be left empty, meaning `normal')
+  
+\newtheoremstyle{punrem}%                % Name
+  {0pt}%                                     % Space above
+  {2pt}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\color{black}\itshape}%                            % Theorem head font
+  {.}%                                    % Punctuation after theorem head
+  { }%                                    % Space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%                                     % Theorem head spec (can be left empty, meaning `normal')
+  
+  \newtheoremstyle{punnote}%                % Name
+  {0pt}%                                     % Space above
+  {2pt}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\color{blue!70}\itshape}%                            % Theorem head font
+  {.}%                                    % Punctuation after theorem head
+  { }%                                    % Space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%                                     % Theorem head spec (can be left empty, meaning `normal')
+
+%% uses of theorem styles
+
+\theoremstyle{puntheo}
+\newtheorem{thm}{Theorem}[section]
+
+\theoremstyle{punthm}
+\newtheorem{lem}[thm]{Lemma}
+
+\theoremstyle{greenpunthm}
+\newtheorem{glem}[thm]{Lemma}
+
+\theoremstyle{punthm}
+\newtheorem{prop}[thm]{Proposition}
+
+\theoremstyle{punthm}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{punthm}
+\newtheorem{defn}{Definition}[section]
+
+\theoremstyle{punthm}
+\newtheorem{exmp}{Example}[section]
+
+\theoremstyle{punthm}
+\newtheorem{pro}{Problem}[section]
+
+\theoremstyle{punthm}
+\newtheorem{proe}{Problem}
+
+\theoremstyle{punrem} 
+\newtheorem*{rem}{Remark}
+
+\theoremstyle{punnote}
+\newtheorem{Note}{Note}[section]
+
+\theoremstyle{punnote}
+\newtheorem{note}{Note}[subsection]
+
+\theoremstyle{punrem} 
+\newtheorem{exer}{Exercise}[section]
+
+%% choices
+
+\newcounter{choice}
+\renewcommand\thechoice{\Alph{choice}}
+\newcommand\choicelabel{\thechoice.}
+
+\newenvironment{choices}%
+  {\list{\choicelabel}%
+     {\usecounter{choice}\def\makelabel##1{\hss\llap{##1}}%
+       \settowidth{\leftmargin}{W.\hskip\labelsep\hskip 2.5em}%
+       \def\choice{%
+         \item
+       } % choice
+       \labelwidth\leftmargin\advance\labelwidth-\labelsep
+       \topsep=0pt
+       \partopsep=0pt
+     }%
+  }%
+  {\endlist}
+
+\newenvironment{oneparchoices}%
+  {%
+    \setcounter{choice}{0}%
+    \def\choice{%
+      \refstepcounter{choice}%
+      \ifnum\value{choice}>1\relax
+        \penalty -50\hskip 1em plus 1em\relax
+      \fi
+      \choicelabel
+      \nobreak\enskip
+    }% choice
+    % If we're continuing the paragraph containing the question,
+    % then leave a bit of space before the first choice:
+    \ifvmode\else\enskip\fi
+    \ignorespaces
+  }%
+  {}
+
+
+%% box
+
+\newcommand{\ptbox}[2]{\begin{tcolorbox}
+	[coltitle=red!20!black,colframe=red!35,title=#1]#2
+		\end{tcolorbox}}%		just a box(red)
+\newcommand{\problem}[2]{\begin{tcolorbox}
+	[coltitle=blue!20!black,colframe=blue!35,title=\pro#1]#2
+		\end{tcolorbox}}%		the problem with number and source
+		
+\newcommand{\nproblem}[1]{\begin{tcolorbox}
+	[coltitle=blue!20!black,colframe=blue!35,title=\pro\hfill]#1
+		\end{tcolorbox}}%		the problem with number
+		
+\newcommand{\problema}[2]{\begin{tcolorbox}
+	[coltitle=blue!20!black,colframe=blue!35,title=\textbf{Problem }(#1)]#2
+		\end{tcolorbox}}%		the problem without number
+
+\newcommand{\example}[2]{\begin{tcolorbox}
+	[coltitle=blue!20!black,colframe=blue!35,title=\exmp(#1)]#2
+		\end{tcolorbox}}%		the example with number
+		
+\newcommand{\examplea}[2]{\begin{tcolorbox}
+	[coltitle=blue!20!black,colframe=blue!35,title=\textbf{Example }(#1)]#2
+		\end{tcolorbox}}%		the example without number
+
+\newcommand{\claim}[1]{\begin{tcolorbox}
+[colback=green!10!white,colframe=green!60!black,sharp corners,arc=0mm,boxrule=0mm,leftrule=0.7mm]
+	\textcolor{green!70!black}{Claim:} #1
+		\end{tcolorbox}}%		claim without name
+
+\newcommand{\claimn}[2]{\begin{tcolorbox}
+[colback=green!10!white,colframe=green!60!black,sharp corners,arc=0mm,boxrule=0mm,leftrule=0.7mm]
+	\textcolor{green!70!black}{#1:} #2
+		\end{tcolorbox}}%		claim with name
+
+\newcommand{\Remark}[1]{\begin{tcolorbox}
+[colback=black!10!white,colframe=black!60!black,sharp corners,arc=0mm,boxrule=0mm,leftrule=0.7mm]
+	\rem{#1}
+		\end{tcolorbox}}%		remark
+
+\newcommand{\redb}[1]{\begin{tcolorbox}
+[colback=red!10!white,colframe=red!70!white,boxrule=0.5pt]
+	#1
+		\end{tcolorbox}}%		red box without title
+
+\newcommand{\reph}[1]{\begin{tcolorbox}
+[colback=blue!40!green!40!white,colframe=blue!80!green,boxrule=0.5pt]
+	\textcolor{blue}{Rephrase:} #1
+		\end{tcolorbox}}%		Others
+
+
