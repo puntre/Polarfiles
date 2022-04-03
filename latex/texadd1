@@ -1,0 +1,34 @@
+%% normal texadd1
+
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{{\bfseries Righthead}}
+\fancyhead[RE,LO]{{Pun Tresattayapan\textcolor{blue!50!white}{\href{https://www.facebook.com/puntre.puntre/}{\nolinkurl{*}}}}(\today)}
+\fancyfoot[CE,CO]{\thepage}
+
+\renewcommand{\headrulewidth}{0.5pt}
+
+\title{Title}
+\author{Pun tresattayapan}
+\date{\today}
+
+%% in case of Thai usage: add the following
+
+\usepackage[english,thai]{babel}
+\usepackage[utf8x]{inputenc}        % (changed from utf8)
+\usepackage{fonts-tlwg}
+
+%% in case of Asymptote: add the following
+
+\usepackage{asymptote}
