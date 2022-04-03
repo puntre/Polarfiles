@@ -32,3 +32,7 @@
 %% in case of Asymptote: add the following
 
 \usepackage{asymptote}
+
+%% warning: don't forget
+
+\end{document}
