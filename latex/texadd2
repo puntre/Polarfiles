@@ -2,9 +2,6 @@
 
 \newcommand{\sdots}{\dots\dots}
 \newcommand{\ord}{\text{ord}}
-\newcommand{\min}{\text{min}}
-\newcommand{\max}{\text{max}}
-\newcommand{\gcd}{\text{gcd}}
 \newcommand{\lcm}{\text{lcm}}
 
 \newcommand{\cbrt}[1]{\sqrt[3]{#1}}
@@ -37,22 +34,10 @@
 
 \newcommand{\bbN}{\mathbb{N}}
 \newcommand{\bbZ}{\mathbb{Z}}
-\newcommand{\bbZ+}{\mathbb{Z^+}}
-\newcommand{\bbZ-}{\mathbb{Z^-}}
+\newcommand{\bbZp}{\mathbb{Z^+}}
+\newcommand{\bbZm}{\mathbb{Z^-}}
 \newcommand{\bbC}{\mathbb{C}}
 \newcommand{\bbR}{\mathbb{R}}
-
- use packages
-
-\usepackage[utf8]{inputenc}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{amsmath,amsthm,amssymb}
-\usepackage{mathtools}
-\usepackage{tcolorbox}
-\usepackage{fancyhdr}
-\usepackage{hyperref}
-\usepackage[dvipsnames]{xcolor}
-\usepackage{graphicx}
 
 %% head & section
 
