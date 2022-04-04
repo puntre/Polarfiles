@@ -3,7 +3,7 @@
 \newcommand{\sdots}{\dots\dots}
 \newcommand{\ord}{\text{ord}}
 \newcommand{\min}{\text{min}}
-\newcommand{max}{\text{max}}
+\newcommand{\max}{\text{max}}
 \newcommand{\gcd}{\text{gcd}}
 \newcommand{\lcm}{\text{lcm}}
 
