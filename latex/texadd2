@@ -22,6 +22,7 @@
 \newcommand{\rtx}[1]{\textcolor{red!70}{#1}}
 
 \newcommand{\soln}[1]{\begin{proof}[\textcolor{blue!70}{Solution.}] #1 \end{proof}}
+\newcommand{\bsoln}[1]{\begin{proof}[\textcolor{red!70}{Solution.}] \textcolor{blue!70}{#1} \end{proof}}
 
 %% cyc and sym sum, prod
 
