@@ -20,6 +20,8 @@
 
 \newcommand{\btx}[1]{\textcolor{blue!70}{#1}}
 \newcommand{\rtx}[1]{\textcolor{red!70}{#1}}
+\newcommand{\bbf}[1]{\textcolor{blue!70}{\textbf{#1}}}
+\newcommand{\rbf}[1]{\textcolor{red!70}{\textbf{#1}}}
 
 \newcommand{\soln}[1]{\begin{proof}[\textcolor{blue!70}{Solution.}] #1 \end{proof}}
 \newcommand{\bsoln}[1]{\begin{proof}[\textcolor{red!70}{Solution.}] \textcolor{blue!70}{#1} \end{proof}}
@@ -237,5 +239,8 @@
 [colback=blue!40!green!40!white,colframe=blue!80!green,boxrule=0.5pt]
 	\textcolor{blue}{Rephrase:} #1
 		\end{tcolorbox}}%		Others
+
+\newtcolorbox{bluebox}{colback=blue!5!white,colframe=blue!35}
+\newtcolorbox{redbox}{colback=red!5!white,colframe=red!35}
 
 
