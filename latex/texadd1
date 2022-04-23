@@ -10,6 +10,7 @@
 \usepackage{hyperref}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{graphicx}
+\usepackage{dirtytalk}
 
 \pagestyle{fancy}
 \fancyhf{}
