@@ -11,7 +11,7 @@
 \usepackage[dvipsnames]{xcolor}
 \usepackage{graphicx}
 \usepackage{dirtytalk}
-
+\usepackage{csquotes}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[LE,RO]{{\bfseries Righthead}}
