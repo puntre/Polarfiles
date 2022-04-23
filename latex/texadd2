@@ -243,4 +243,5 @@
 \newtcolorbox{bluebox}{colback=blue!5!white,colframe=blue!35}
 \newtcolorbox{redbox}{colback=red!5!white,colframe=red!35}
 
-
+\newcommand{\greenproe}[1]{\textcolor{blue!50!green}{\proe{#1}}}
+\newcommand{\greenpro}[1]{\textcolor{blue!50!green}{\pro{#1}}}
