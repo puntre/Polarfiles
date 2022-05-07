@@ -10,20 +10,27 @@
 \usepackage{hyperref}
 \usepackage[dvipsnames]{xcolor}
 \usepackage{graphicx}
-\usepackage{dirtytalk}
-\usepackage{csquotes}
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[LE,RO]{{\bfseries Righthead}}
-\fancyhead[RE,LO]{{Pun Tresattayapan\textcolor{blue!50!white}{\href{https://www.facebook.com/puntre.puntre/}{\nolinkurl{*}}}}(\today)}
-\fancyfoot[CE,CO]{\thepage}
+\setlength{\headheight}{13.59999pt}
+\addtolength{\topmargin}{-1.59999pt}
+\fancyhead[R,RO]{WU2022 TST}
+\fancyhead[L,LO]{ Pun Tresattayapan\textcolor{blue!50!white}{\href{https://www.facebook.com/puntre.puntre/}{\nolinkurl{*}}}(\today)}
+\fancyfoot[C,CO]{\thepage}
 
 \renewcommand{\headrulewidth}{0.5pt}
 
-\title{Title}
+
+\title{Notes}
 \author{Pun tresattayapan}
 \date{\today}
+
+\begin{document}
+
+
+
+
 
 %% in case of Thai usage: add the following
 
