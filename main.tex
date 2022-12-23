@@ -1,0 +1,316 @@
+\documentclass[11pt]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathtools}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\usepackage{dirtytalk}
+\usepackage{csquotes}
+\usepackage{epsfig}
+\usepackage[b5paper, inner=2cm,outer=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{asymptote}
+\usepackage[Glenn]{fncychap}
+
+\pagestyle{fancy}
+\fancyhf{}
+\setlength{\headheight}{13.59999pt}
+\addtolength{\topmargin}{-1.59999pt}
+\fancyhead[R]{\jobname}
+\fancyhead[L]{ Pun Tresattayapan\textcolor{blue!50!white}{\href{https://www.facebook.com/puntre.puntre/}{\nolinkurl{*}}}(\today)}
+\fancyfoot[R]{\thepage}
+
+
+\renewcommand{\headrulewidth}{0.5pt}
+
+
+\title{\jobname}
+\author{Pun Tresattayapan}
+\date{\today}
+
+
+
+
+
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\lcm}{lcm}
+
+
+\begin{document}
+
+\definecolor{ltblue}{HTML}{14DDEC}
+\definecolor{ltred}{HTML}{FFB6C1}
+\definecolor{ltgreen}{HTML}{50C878}
+
+\newcommand{\cbrt}[1]{\sqrt[3]{#1}}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\ceiling}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\bparen}[1]{\left[ #1 \right]}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\ol}{\overline}
+\newcommand{\ul}{\underline}
+\newcommand{\wt}{\widetilde}
+\newcommand{\wh}{\widehat}
+\newcommand{\eps}{\varepsilon}
+
+\newcommand{\mangle}{\measuredangle}
+
+
+\newcommand{\btx}[1]{\textcolor{blue!70}{#1}}
+\newcommand{\rtx}[1]{\textcolor{red!70}{#1}}
+\newcommand{\bbf}[1]{\textcolor{blue!70}{\textbf{#1}}}
+\newcommand{\rbf}[1]{\textcolor{red!70}{\textbf{#1}}}
+
+\makeatletter
+\renewenvironment{proof}[1][\proofname]{\par
+	\pushQED{\qed}%
+	\normalfont \topsep6\p@\@plus6\p@\relax
+	\trivlist
+	\item\relax
+	{\itshape
+		#1\@addpunct{.}}\hspace\labelsep\ignorespaces
+    \setcounter{equation}{0}
+}{%
+	\popQED\endtrivlist\@endpefalse\vspace{-13 pt}\noindent\strut\hrulefill \strut \smallskip \newline
+}
+\makeatother
+\makeatletter
+\newenvironment{subproof}[1][\proofname]{\par
+	\pushQED{\qed}%
+	\normalfont \topsep6\p@\@plus6\p@\relax
+	\trivlist
+	\item\relax
+	{\itshape
+		#1\@addpunct{.}}\hspace\labelsep\ignorespaces
+}{%
+	\popQED\endtrivlist\@endpefalse
+}
+\makeatother
+
+
+%% cyc and sym sum, prod
+
+\newcommand{\cycsum}{\sum_{\mathrm{cyc}}}
+\newcommand{\symsum}{\sum_{\mathrm{sym}}}
+\newcommand{\cycprod}{\prod_{\mathrm{cyc}}}
+\newcommand{\symprod}{\prod_{\mathrm{sym}}}
+
+%% Sets
+
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbZp}{\mathbb{Z^+}}
+\newcommand{\bbZm}{\mathbb{Z^-}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbR}{\mathbb{R}}
+
+%% head & section
+
+\renewcommand{\headrulewidth}{0.5pt}
+
+\makeatletter
+%% See pp. 26f. of 'The LaTeX Companion,' 2nd. ed.
+\def\@seccntformat#1{\@ifundefined{#1@cntformat}%
+    {\csname the#1\endcsname\quad}%      default
+    {\csname #1@cntformat\endcsname}}%   individual control
+    \newcommand{\section@cntformat}{\textcolor{blue!70}{$\spadesuit$\hspace{0.1cm}\thesection}\quad}
+    \newcommand{\subsection@cntformat}{\textcolor{red!70}{$\clubsuit$\hspace{0.1cm}\thesubsection}\quad}
+    \newcommand{\subsubsection@cntformat}{\textcolor{green!75!blue}{$\diamondsuit$\hspace{0.1cm}\thesubsubsection}\quad}
+    \newcommand{\subsubsubsection@cntformat}{\textcolor{green!75!blue}{$\heartsuit$\hspace{0.1cm}\thesubsubsection}\quad}
+%\newcommand{\paragraph@cntformat}{\S\theparagraph\quad}
+%\newcommand{\subparagraph@cntformat}{\S\thesubparagraph\quad}
+\makeatletter
+
+%% theoremstyles (again, some are edited from Dylandi)
+
+\newtheoremstyle{puntheo}%                % Name
+  {0pt}%                                     % Space above
+  {2pt}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\color{red!70}\bfseries}%                            % Theorem head font
+  {.}%                                    % Punctuation after theorem head
+  { }%                                    % Space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}% 
+
+\newtheoremstyle{punthm}%                % Name
+  {0pt}%                                     % Space above
+  {2pt}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\color{blue!70}\bfseries}%                            % Theorem head font
+  {.}%                                    % Punctuation after theorem head
+  { }%                                    % Space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%                                     % Theorem head spec (can be left empty, meaning `normal')
+
+  
+\newtheoremstyle{punrem}%                % Name
+  {0pt}%                                     % Space above
+  {2pt}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\color{black}\itshape}%                            % Theorem head font
+  {.}%                                    % Punctuation after theorem head
+  { }%                                    % Space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%                                     % Theorem head spec (can be left empty, meaning `normal')
+
+
+  \newtheoremstyle{punnote}%                % Name
+  {0pt}%                                     % Space above
+  {2pt}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\color{blue!70}\itshape}%                            % Theorem head font
+  {.}%                                    % Punctuation after theorem head
+  { }%                                    % Space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%                                     % Theorem head spec (can be left empty, meaning `normal')
+
+\newtheoremstyle{punexercise}%                % Name
+  {0pt}%                                     % Space above
+  {2pt}%                                     % Space below
+  {}%                                     % Body font
+  {}%                                     % Indent amount
+  {\color{blue!70}\itshape}%                            % Theorem head font
+  {.}%                                    % Punctuation after theorem head
+  { }%                                    % Space after theorem head, ' ', or \newline
+  {\thmname{#1}\thmnumber{ #2}\thmnote{ (#3)}}%                                     % Theorem head spec (can be left empty, meaning `normal')
+
+
+
+%% uses of theorem styles
+
+\theoremstyle{puntheo}
+\newtheorem{thm}{Theorem}[section]
+
+\theoremstyle{punthm}
+\newtheorem{lem}[thm]{Lemma}
+
+
+\theoremstyle{punthm}
+\newtheorem{prop}[thm]{Proposition}
+
+\theoremstyle{punthm}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{punthm}
+\newtheorem{defn}{Definition}[section]
+
+\theoremstyle{punthm}
+\newtheorem{exmp}{Example}[section]
+
+\theoremstyle{punthm}
+\newtheorem{pro}{Problem}[section]
+
+\theoremstyle{punthm}
+\newtheorem{proe}{Problem}
+
+\theoremstyle{punrem} 
+\newtheorem*{rem}{Remark}
+
+\theoremstyle{punexercise} 
+\newtheorem{exer}{Exercise}[section]
+
+%% choices
+
+\newcounter{choice}
+\renewcommand\thechoice{\Alph{choice}}
+\newcommand\choicelabel{\thechoice.}
+
+\newenvironment{choices}%
+  {\list{\choicelabel}%
+     {\usecounter{choice}\def\makelabel##1{\hss\llap{##1}}%
+       \settowidth{\leftmargin}{W.\hskip\labelsep\hskip 2.5em}%
+       \def\choice{%
+         \item
+       } % choice
+       \labelwidth\leftmargin\advance\labelwidth-\labelsep
+       \topsep=0pt
+       \partopsep=0pt
+     }%
+  }%
+  {\endlist}
+
+\newenvironment{oneparchoices}%
+  {%
+    \setcounter{choice}{0}%
+    \def\choice{%
+      \refstepcounter{choice}%
+      \ifnum\value{choice}>1\relax
+        \penalty -50\hskip 1em plus 1em\relax
+      \fi
+      \choicelabel
+      \nobreak\enskip
+    }% choice
+    % If we're continuing the paragraph containing the question,
+    % then leave a bit of space before the first choice:
+    \ifvmode\else\enskip\fi
+    \ignorespaces
+  }%
+  {}
+
+
+  %% box UNFINISHED (Add other colors)
+\newcommand{\lbBox}[2]{\begin{tcolorbox}
+		[toprule=-1mm, colback=ltblue!10!white, colframe=ltblue!95!black, sharp corners, title=\textbf{#1}]
+	#2
+	\end{tcolorbox}}
+
+\newcommand{\lrBox}[2]{\begin{tcolorbox}
+		[toprule=-1mm, colback=ltred!10!white, colframe=ltred!95!black, sharp corners, title=\textbf{#1}]
+	#2
+	\end{tcolorbox}}
+
+
+
+\newcommand{\Thm}[2]{\lrBox{\thm{\textbf{#1}}}{#2}}
+
+\newcommand{\Lem}[2]{\lrBox{\lem{\textbf{#1}}}{#2}}
+
+\newcommand{\Defn}[2]{\lbBox{\defn{\textbf{#1}}}{#2}}
+
+\newcommand{\Exmp}[2]{\lbBox{\exmp{\textbf{#1}}}{#2}}
+
+\newcommand{\Pro}[2]{\lbBox{\pro{\textbf{#1}}}{#2}}
+
+\newcommand{\Proe}[2]{\lbBox{\proe{\textbf{#1}}}{#2}}
+
+\newcommand{\Exer}[2]{\lbBox{\exer{\textbf{#1}}}{#2}}
+
+	
+
+\newcommand{\lbbox}[1]{\begin{tcolorbox}
+	[colback=ltblue!10!white, colframe=ltblue!80!black, sharp corners]
+	#1
+	\end{tcolorbox}}
+
+
+
+\newcommand{\claim}[1]{\begin{tcolorbox}
+	[colback=ltgreen!10!white,colframe=ltgreen!90!green,sharp corners,arc=0mm,boxrule=0mm,leftrule=0.7mm]
+	\textcolor{ltgreen}{\textbf{Claim.}} #1
+		\end{tcolorbox}}%		claim
+
+\newcommand{\lemma}[1]{\begin{tcolorbox}
+	[colback=ltgreen!10!white,colframe=ltgreen!90!black,sharp corners,arc=0mm,boxrule=0mm,leftrule=0.7mm]
+	\textcolor{ltgreen}{\textbf{Lemma.}} #1
+		\end{tcolorbox}}%		claim
+
+\newcommand{\Remark}[1]{\begin{tcolorbox}
+	[colback=black!10!white,colframe=black!60!black,sharp corners,arc=0mm,boxrule=0mm,leftrule=0.7mm]
+	\rem{#1}
+		\end{tcolorbox}}%		Remark
+
+
+
+%===========================================================================
+%======================= typesetting start here ============================
+%===========================================================================
+\maketitle
+{\color{ltblue!70!blue}\tableofcontents}
+
+\include{PHP.tex}
+\end{document}
